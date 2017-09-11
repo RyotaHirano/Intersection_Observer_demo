@@ -1,8 +1,7 @@
 import '../css/style.scss'
+import createIntersectionObserver from './modules/IntersectionObserver'
 
-const observer = new IntersectionObserver((change) => {
-  console.log(change[0].isIntersecting);
+Array.prototype.forEach.call(document.querySelectorAll('.js-intersection-target'), el => {
+  const observerEl = new createIntersectionObserver(el)
+  observerEl.bindObserver()
 })
-
-const targetEl = document.querySelector('.js-target')
-observer.observe(targetEl)
