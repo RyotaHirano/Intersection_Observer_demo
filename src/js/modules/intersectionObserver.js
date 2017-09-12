@@ -1,13 +1,24 @@
 export default class createIntersectionObserver {
-  constructor(el) {
+  constructor(el, options) {
     this.el = el
+    this.options = {}
+    Object.assign(this.options, options)
     this.initObserver()
   }
 
   initObserver() {
     this.observer = new IntersectionObserver((change) => {
-      console.log(change[0].isIntersecting)
+      const isIntersecting = change[0].isIntersecting
+      this.toggleClass(isIntersecting)
     })
+  }
+
+  toggleClass(isIntersecting) {
+    if(isIntersecting) {
+      this.el.classList.add(this.options.class)
+    } else {
+      this.el.classList.remove(this.options.class)
+    }
   }
 
   bindObserver() {
