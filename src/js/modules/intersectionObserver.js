@@ -15,9 +15,9 @@ export default class createIntersectionObserver {
 
   toggleClass(isIntersecting) {
     if(isIntersecting) {
-      this.el.classList.add(this.options.class)
+      this.el.classList.add(this.options.addClass)
     } else {
-      this.el.classList.remove(this.options.class)
+      this.el.classList.remove(this.options.addClass)
     }
   }
 
