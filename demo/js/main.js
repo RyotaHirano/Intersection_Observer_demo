@@ -1,5 +1,5 @@
 import '../css/style.scss'
-import createIntersectionObserver from './modules/IntersectionObserver'
+import createIntersectionObserver from '../../src/IntersectionObserver'
 
 const IntersectionObserverOptions = {
   targets: '.js-intersection-target',

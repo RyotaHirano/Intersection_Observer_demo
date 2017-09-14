@@ -6,7 +6,7 @@ import { resolve } from 'path';
 const rootResolve = pathname => resolve(__dirname, pathname);
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: './demo/js/main.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     publicPath: '',
@@ -26,7 +26,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: `${rootResolve('src/html/index.pug')}`,
+      template: `${rootResolve('demo/html/index.pug')}`,
     }),
     new ExtractTextPlugin({
       filename: 'assets/css/style.[hash].css',
