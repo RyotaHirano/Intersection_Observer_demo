@@ -1,4 +1,4 @@
-export default class createIntersectionObserver {
+export default class inviewToggleClass {
   constructor(el, options) {
     this.el = el
     this.options = {}

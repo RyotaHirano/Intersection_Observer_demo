@@ -1,12 +1,12 @@
 import '../css/style.scss'
-import createIntersectionObserver from '../../src/IntersectionObserver'
+import inviewToggleClass from '../../src/inviewToggleClass'
 
-const IntersectionObserverOptions = {
-  targets: '.js-intersection-target',
+const inviewToggleClassOptions = {
+  targets: '.js-inview-target',
   addClass: 'is-show'
 }
 
-Array.prototype.forEach.call(document.querySelectorAll(IntersectionObserverOptions.targets), el => {
-  const observerEl = new createIntersectionObserver(el, IntersectionObserverOptions)
+Array.prototype.forEach.call(document.querySelectorAll(inviewToggleClassOptions.targets), el => {
+  const observerEl = new inviewToggleClass(el, inviewToggleClassOptions)
   observerEl.bindObserver()
 })
