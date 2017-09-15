@@ -33,8 +33,10 @@ export default class inviewToggleClass {
   }
 
   offObserver() {
-    this.observer.unobserve(this.el)
-    this.observer = null
-    this.el = null
+    if (this.observer && this.el) {
+      this.observer.unobserve(this.el)
+      this.observer = null
+      this.el = null
+    }
   }
 }

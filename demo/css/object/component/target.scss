@@ -5,8 +5,7 @@
   width: 200px;
   height: 200px;
   background-color: #dedede;
-  transform: translateX(-100%);
-  margin-left: 50%;
+  transition: background-color 0.2s ease 0.5s;
 
   &--1 {
     top: 500px;
@@ -14,5 +13,9 @@
 
   &--2 {
     top: 800px;
+  }
+  
+  &.is-show {
+    background-color: #e24d4d;
   }
 }
