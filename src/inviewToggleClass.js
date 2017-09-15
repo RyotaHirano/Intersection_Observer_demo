@@ -1,7 +1,9 @@
 export default class inviewToggleClass {
   constructor(el, options) {
     this.el = el
-    this.options = {}
+    this.options = {
+      watch: true
+    }
     Object.assign(this.options, options)
     this.initObserver()
   }
@@ -10,6 +12,9 @@ export default class inviewToggleClass {
     this.observer = new IntersectionObserver((change) => {
       const isIntersecting = change[0].isIntersecting
       this.toggleClass(isIntersecting)
+      if(this.options.watch && isIntersecting) {
+        this.offObserver()
+      }
     })
   }
 
@@ -21,9 +26,15 @@ export default class inviewToggleClass {
     }
   }
 
-  bindObserver() {
+  onObserver() {
     if(typeof this.observer !== 'undefined') {
       this.observer.observe(this.el)
     }
+  }
+
+  offObserver() {
+    this.observer.unobserve(this.el)
+    this.observer = null
+    this.el = null
   }
 }
