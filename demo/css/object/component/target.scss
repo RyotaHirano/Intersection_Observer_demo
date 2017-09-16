@@ -1,17 +1,22 @@
 .c-target {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   width: 200px;
   height: 200px;
+  margin-left: -100px;
   background-color: #dedede;
   transition: background-color 0.2s ease 0.5s;
 
   &--1 {
-    top: 500px;
+    top: 200px;
   }
 
   &--2 {
+    top: 500px;
+  }
+
+  &--3 {
     top: 800px;
   }
   
