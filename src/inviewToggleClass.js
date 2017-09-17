@@ -9,13 +9,15 @@ export default class inviewToggleClass {
   }
 
   initObserver() {
-    this.observer = new IntersectionObserver((change) => {
-      const isIntersecting = change[0].isIntersecting
-      this.toggleClass(isIntersecting)
-      if(this.options.watch && isIntersecting) {
-        this.offObserver()
-      }
-    })
+    if('IntersectionObserver' in window) {
+      this.observer = new IntersectionObserver((change) => {
+        const isIntersecting = change[0].isIntersecting
+        this.toggleClass(isIntersecting)
+        if(this.options.watch && isIntersecting) {
+            this.offObserver()
+        }
+      })
+    }
   }
 
   toggleClass(isIntersecting) {
