@@ -7,6 +7,5 @@ const inviewToggleClassOptions = {
 }
 
 Array.prototype.forEach.call(document.querySelectorAll(inviewToggleClassOptions.targets), el => {
-  const observeEl = new inviewToggleClass(el, inviewToggleClassOptions)
-  observeEl.onObserver()
+  inviewToggleClass(el, inviewToggleClassOptions)
 })
