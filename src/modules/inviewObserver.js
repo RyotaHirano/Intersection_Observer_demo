@@ -8,6 +8,9 @@ export default class inviewObserver {
     }
     Object.assign(this.options, options)
 
+    this.scrollEvent = () => {
+      this.handleScroll()
+    }
     this.windowHeight = window.innerHeight
     this.windowScrollTop = window.pageYOffset
     this.offsetTop = this.el.offsetTop
@@ -15,8 +18,6 @@ export default class inviewObserver {
   }
 
   handleScroll() {
-    console.log(this.options);
-    console.log(window.pageYOffset);
     this.windowScrollTop = window.pageYOffset
     const isIntersecting = this.windowScrollTop + this.windowHeight > this.offsetTop
     if (isIntersecting) {
@@ -26,10 +27,11 @@ export default class inviewObserver {
   }
 
   on() {
-    window.addEventListener('scroll', this.handleScroll)
+    this.handleScroll()
+    window.addEventListener('scroll', this.scrollEvent, false)
   }
 
   off() {
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('scroll', this.scrollEvent, false)
   }
 }
