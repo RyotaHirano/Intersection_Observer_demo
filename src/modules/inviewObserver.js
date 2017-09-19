@@ -16,6 +16,7 @@ export default class inviewObserver {
 
   handleScroll() {
     console.log(this.options);
+    console.log(window.pageYOffset);
     this.windowScrollTop = window.pageYOffset
     const isIntersecting = this.windowScrollTop + this.windowHeight > this.offsetTop
     if (isIntersecting) {
