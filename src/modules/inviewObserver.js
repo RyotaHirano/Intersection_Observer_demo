@@ -14,7 +14,6 @@ export default class inviewObserver {
     this.windowHeight = window.innerHeight
     this.windowScrollTop = window.pageYOffset
     this.offsetTop = this.el.offsetTop
-    this.offsetHeight = this.el.offsetHeight
   }
 
   handleScroll() {
@@ -33,5 +32,15 @@ export default class inviewObserver {
 
   off() {
     window.removeEventListener('scroll', this.scrollEvent, false)
+    this.clear()
+  }
+
+  clear() {
+    this.el = null
+    this.options = null
+    this.scrollEvent = null
+    this.windowHeight = null
+    this.windowScrollTop = null
+    this.offsetTop = null
   }
 }
