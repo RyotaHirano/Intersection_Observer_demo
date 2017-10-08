@@ -4,7 +4,7 @@ export default class _IntersectionObserver {
   constructor(el, options) {
     this.el = el
     this.options = {
-      watch: true
+      watch: false
     }
     Object.assign(this.options, options)
     this.initObserver()
@@ -14,7 +14,7 @@ export default class _IntersectionObserver {
     this.observer = new IntersectionObserver((change) => {
       const isIntersecting = change[0].isIntersecting
       toggleClass(this.el, this.options, isIntersecting)
-      if(this.options.watch && isIntersecting) {
+      if(!this.options.watch && isIntersecting) {
         this.off()
       }
     })

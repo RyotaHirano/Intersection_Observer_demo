@@ -4,7 +4,7 @@ export default class inviewObserver {
   constructor(el, options) {
     this.el = el
     this.options = {
-      watch: true
+      watch: false
     }
     Object.assign(this.options, options)
 
@@ -21,6 +21,8 @@ export default class inviewObserver {
     const isIntersecting = this.windowScrollTop + this.windowHeight > this.offsetTop
     if (isIntersecting) {
       toggleClass(this.el, this.options, isIntersecting)
+    }
+    if (!this.options.watch && isIntersecting) {
       this.off()
     }
   }
