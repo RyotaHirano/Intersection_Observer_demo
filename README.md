@@ -14,3 +14,5 @@ Array.prototype.forEach.call(document.querySelectorAll(inviewToggleClassOptions.
   inviewToggleClass(el, inviewToggleClassOptions)
 })
 ```
+
+demo: https://ryotahirano.github.io/Intersection_Observer_demo/
